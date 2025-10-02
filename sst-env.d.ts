@@ -5,7 +5,18 @@
 
 declare module "sst" {
   export interface Resource {
-    "MyWeb": {
+    "database": {
+      "database": string
+      "host": string
+      "password": string
+      "port": number
+      "type": "sst.aws.Mysql"
+      "username": string
+    }
+    "db-vpc": {
+      "type": "sst.aws.Vpc"
+    }
+    "frontend": {
       "type": "sst.aws.React"
       "url": string
     }

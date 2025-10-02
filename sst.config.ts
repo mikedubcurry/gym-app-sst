@@ -16,6 +16,17 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.React("MyWeb");
+    const web = new sst.aws.React("frontend");
+    const vpc = new sst.aws.Vpc("db-vpc");
+
+    const db = new sst.aws.Mysql("database", {
+      vpc,
+      dev: {
+        username: 'root',
+        password: 'password',
+        database: 'gym',
+        port: 3306,
+      },
+    });
   },
 });
