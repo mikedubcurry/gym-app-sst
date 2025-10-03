@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router";
 import type { Route } from "./+types/publicLayout";
 import { db } from "db/database";
@@ -15,6 +15,7 @@ export async function loader() {
 
 export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main
       className="flex flex-col relative h-screen w-screen overflow-hidden"
@@ -33,7 +34,7 @@ export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) 
           <Link to="/login">Log In</Link>
         </nav>
       </div>
-      <Outlet context={gym} />
+      <Outlet />
     </main>
   )
 }

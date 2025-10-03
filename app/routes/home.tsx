@@ -1,8 +1,6 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
 import { db } from "db/database";
-import { useOutletContext } from "react-router";
-import type { Gym } from "db/types";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -21,12 +19,11 @@ export async function loader() {
   return gym!;
 }
 
-export default function Home() {
-  const gym: Gym = useOutletContext()
+export default function Home({ loaderData: gym }: Route.ComponentProps) {
   console.log(gym)
   return (
     <>
-      <h1 className="font-bold text-3xl">{"d"}</h1>
+      <h1 className="font-bold text-3xl">{gym.name}</h1>
     </>
   );
 }
