@@ -44,7 +44,7 @@ export interface SchedulesTable {
   id: Generated<number>
   gym_id: number
   day: string
-  time_start: Date
+  time_start: string
   duration: number
   class: string
 }
