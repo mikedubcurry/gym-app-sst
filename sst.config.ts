@@ -2,6 +2,8 @@
 
 export default $config({
   app(input) {
+    const { stage } = input
+    const profile = stage === 'prod' || stage === 'staging' ? 'default' : 'gym'
     return {
       name: "gym",
       removal: input?.stage === "production" ? "retain" : "remove",
@@ -9,8 +11,7 @@ export default $config({
       home: "aws",
       providers: {
         aws: {
-          // profile: input?.stage === "staging" ? "gym-staging" : "gym-prod"
-          profile: input?.stage ===  'prod' ? 'gym-prod' : 'gym'
+          profile
         }
       }
     };
