@@ -29,7 +29,7 @@ Acceptance: Developer clones repo, cd web && npm install works.~~
 ~~Acceptance: sst deploy returns an API endpoint + site URL.~~
 ##### A3 — CI/CD (SMALL → MEDIUM)
 GitHub Actions: lint, test, build, sst deploy --stage dev on merges to main.
-Secure AWS keys in GH Secrets.
+~~Secure AWS keys in GH Secrets.~~
 Acceptance: Merge triggers build + deployment.
 #### Epic B — Database & schema (MySQL)
 Goal: Provision RDS MySQL and implement migrations & seed data.
