@@ -21,6 +21,8 @@ export default $config({
 
     const db = new sst.aws.Mysql("database", {
       vpc,
+      password: process.env.DB_PASSWORD,
+      username: process.env.DB_USER,
       dev: {
         username: 'root',
         password: 'password',

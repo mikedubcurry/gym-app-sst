@@ -1,0 +1,34 @@
+name: deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy SST APP
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: "./"
+
+      - name: Use Node.JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Deploy SST app
+        uses: quenginedev/sst-deploy@main
+        env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+            # ANY OTHER ENVS can go here
+        with:
+          path: '/path/to/the/root/of/your/sst/folder'
+          pkg-manager: 'npm' # required
+          stage: 'staging'
+          pre-deploy: 'npm i'
