@@ -17,7 +17,6 @@ export default $config({
     };
   },
   async run() {
-    const web = new sst.aws.React("frontend");
     const vpc = new sst.aws.Vpc("db-vpc");
 
     const db = new sst.aws.Mysql("database", {
@@ -30,6 +29,9 @@ export default $config({
         database: 'gym',
         port: 3306,
       },
+    });
+    const web = new sst.aws.React("frontend", {
+      link: [db]
     });
   },
 });
