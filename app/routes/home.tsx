@@ -16,7 +16,7 @@ export async function loader() {
     .selectFrom('gyms')
     .where('id', '=', 1)
     .selectAll()
-    .executeTakeFirstOrThrow()
+    .executeTakeFirst()
 
   const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   const today = new Date();
@@ -26,7 +26,7 @@ export async function loader() {
     .where('gym_id', '=', gym!.id)
     .where('day', '=', dayName)
     .selectAll()
-    .execute()!;
+    .execute();
 
   return {
     gym,
@@ -36,7 +36,7 @@ export async function loader() {
 
 export default function Home({ loaderData: { gym, schedule } }: Route.ComponentProps) {
   const sortedSchedule = schedule.sort((a, b) => {
-    if (a.time_start > b.time_start) return 1
+    if (a?.time_start > b?.time_start) return 1
     else return -1
   }).map(s => {
     return {
@@ -48,16 +48,16 @@ export default function Home({ loaderData: { gym, schedule } }: Route.ComponentP
   return (
     <div className="min-h-screen px-2">
       <section className="mb-8">
-        <h1 className="font-bold text-center text-3xl my-6">{gym.name}</h1>
+        <h1 className="font-bold text-center text-3xl my-6">{gym?.name}</h1>
         <p className="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis libero, ex possimus doloremque alias </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl text-center mb-4">{capitalize(schedule[0].day)}'s Classes</h2>
+        <h2 className="text-2xl text-center mb-4">{capitalize(schedule[0]?.day)}'s Classes</h2>
         {sortedSchedule.map(sched => (
-          <div key={sched.id} className="mb-4 border-l-4 pl-4 border-brand">
-            <p>{sched.class}</p>
-            <p>{sched.time_start.toString()} - {sched.time_end}</p>
+          <div key={sched?.id} className="mb-4 border-l-4 pl-4 border-brand">
+            <p>{sched?.class}</p>
+            <p>{sched?.time_start.toString()} - {sched?.time_end}</p>
           </div>
         ))}
       </section>

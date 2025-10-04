@@ -10,7 +10,7 @@ export default $config({
       providers: {
         aws: {
           // profile: input?.stage === "staging" ? "gym-staging" : "gym-prod"
-          profile: input?.stage ===  'staging' ? 'default' : 'gym'
+          profile: input?.stage ===  'staging' ? 'gym' : 'gym-prod'
         }
       }
     };

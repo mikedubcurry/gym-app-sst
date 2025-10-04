@@ -10,14 +10,14 @@ export async function loader() {
     .selectAll()
     .executeTakeFirst()
 
-  return gym!;
+  return gym
 }
 
 export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null);
-
+  console.log(gym)
   useEffect(() => {
     const handleScroll = (e) => {
       const scrollY = e.target.scrollTop;
@@ -42,7 +42,7 @@ export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) 
       >
         <div className="bg-black sticky top-0 z-0">
           <div ref={heroRef} className="flex flex-col justify-center w-full bg-black py-4 transition-all duration-100">
-            <img src="logo-dark.png" alt={gym.name + ' logo'} />
+            <img src="logo-dark.png" alt={gym?.name + ' logo'} />
           </div>
         </div>
         <div className="z-10 bg-black text-white" onClick={() => setMenuOpen(false)}>
