@@ -2,6 +2,7 @@
 
 export default $config({
   app(input) {
+    console.log(input.stage)
     return {
       name: "gym",
       removal: input?.stage === "production" ? "retain" : "remove",
