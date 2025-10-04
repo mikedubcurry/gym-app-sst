@@ -17,7 +17,10 @@ export default $config({
     };
   },
   async run() {
-    const vpc = new sst.aws.Vpc("db-vpc");
+    const vpc = new sst.aws.Vpc("db-vpc", {
+      nat: 'ec2',
+      bastion: true
+    });
 
     const db = new sst.aws.Mysql("database", {
       vpc,
@@ -34,5 +37,10 @@ export default $config({
       link: [db],
       vpc
     });
+
+    return {
+      app: web.url,
+      db_host: db.host,
+    }
   },
 });

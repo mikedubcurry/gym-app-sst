@@ -14,6 +14,7 @@ declare module "sst" {
       "username": string
     }
     "db-vpc": {
+      "bastion": string
       "type": "sst.aws.Vpc"
     }
     "frontend": {
