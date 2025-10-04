@@ -31,7 +31,8 @@ export default $config({
       },
     });
     const web = new sst.aws.React("frontend", {
-      link: [db]
+      link: [db],
+      vpc
     });
   },
 });

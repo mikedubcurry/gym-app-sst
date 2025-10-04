@@ -27,17 +27,17 @@ Acceptance: Developer clones repo, cd web && npm install works.~~
 ~~Install SST and scaffold a stack that deploys a simple Lambda + Api and a static site (SST ReactStaticSite or S3+CloudFront).~~
 ~~Configure AWS account/stage for dev.~~
 ~~Acceptance: sst deploy returns an API endpoint + site URL.~~
-##### A3 — CI/CD (SMALL → MEDIUM)
-GitHub Actions: lint, test, build, sst deploy --stage dev on merges to main.
+~~##### A3 — CI/CD (SMALL → MEDIUM)~~
+~~GitHub Actions: lint, test, build, sst deploy --stage dev on merges to main.~~
 ~~Secure AWS keys in GH Secrets.~~
 Acceptance: Merge triggers build + deployment.
 #### Epic B — Database & schema (MySQL)
 Goal: Provision RDS MySQL and implement migrations & seed data.
 TODO: running db locally to save money
-##### B1 — Provision RDS MySQL via SST (MEDIUM)
-Create an RDS MySQL instance (or Aurora MySQL for better scaling if preferred).
-Configure subnet group, security groups (allow from Lambda VPC or RDS Proxy), backups, and maintenance window.
-Consider enabling RDS Proxy for Lambda connection pooling to avoid connection exhaustion.
+~~##### B1 — Provision RDS MySQL via SST (MEDIUM)~~
+~~Create an RDS MySQL instance (or Aurora MySQL for better scaling if preferred).~~
+~~Configure subnet group, security groups (allow from Lambda VPC or RDS Proxy), backups, and maintenance window.~~
+~~Consider enabling RDS Proxy for Lambda connection pooling to avoid connection exhaustion.~~
 Acceptance: RDS instance endpoint returned in SST outputs.
 ##### B2 — Schema design & migrations (MEDIUM)
 Minimal tables for POC: users, roles, classes, class_occurrences, tenants (optional now or later).
