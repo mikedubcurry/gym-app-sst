@@ -2,7 +2,6 @@
 
 export default $config({
   app(input) {
-    console.log(input.stage)
     return {
       name: "gym",
       removal: input?.stage === "production" ? "retain" : "remove",
@@ -11,7 +10,7 @@ export default $config({
       providers: {
         aws: {
           // profile: input?.stage === "staging" ? "gym-staging" : "gym-prod"
-          profile: 'gym'
+          profile: input?.stage ===  'staging' ? 'default' : 'gym'
         }
       }
     };
