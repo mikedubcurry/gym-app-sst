@@ -28,7 +28,7 @@ jobs:
             AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
             # ANY OTHER ENVS can go here
         with:
-          path: '/path/to/the/root/of/your/sst/folder'
+          path: './'
           pkg-manager: 'npm' # required
           stage: 'staging'
           pre-deploy: 'npm i'
