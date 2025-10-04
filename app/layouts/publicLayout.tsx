@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router";
 import type { Route } from "./+types/publicLayout";
 import { db } from "db/database";
@@ -20,11 +20,12 @@ export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) 
     <main
       className="flex flex-col relative h-screen w-screen overflow-hidden"
     >
-      <div className="flex justify-between border border-black py-8 px-4">
-        <h1 className="">
-          <Link to="/">{gym.name}</Link>
-        </h1>
-        <button onClick={() => setMenuOpen(!menuOpen)}>menu</button>
+      <div className="">
+        <div className="flex flex-col justify-center w-full bg-black py-4">
+          <h1 className="text-2xl font-bold text-center text-brand">{gym.name}</h1>
+          <img src="logo-dark.png" className="w-full" alt={gym.name + ' logo'} />
+        </div>
+        <button className="absolute bottom-0 right-0 border border-black w-20 h-20 rounded-full" onClick={() => setMenuOpen(!menuOpen)}>menu</button>
         <nav
           className={`transition-all w-3/4 h-full flex flex-col border border-black border-r-0 self-end absolute -right-full ${menuOpen && 'right-0'} top-0 bg-amber-200`}
           onClick={() => setMenuOpen(false)}
@@ -34,7 +35,9 @@ export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) 
           <Link to="/login">Log In</Link>
         </nav>
       </div>
-      <Outlet />
+      <div className="h-full" onClick={() => setMenuOpen(false)}>
+        <Outlet />
+      </div>
     </main>
   )
 }

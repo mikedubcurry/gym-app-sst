@@ -19,20 +19,21 @@ Members can register for gym membership, view a fixed class schedule, and admins
 ### Epics & Tasks
 #### Epic A — Project skeleton & infra boilerplate
 Goal: Repo, SST infra, and CI/CD ready.
-##### A1 — Init repo & monorepo skeleton (SMALL)
-Create repo and folders: /web, /services/api, /infra.
-Add README with run/deploy notes.
-Acceptance: Developer clones repo, cd web && npm install works.
-##### A2 — Setup SST & basic deploy (MEDIUM)
-Install SST and scaffold a stack that deploys a simple Lambda + Api and a static site (SST ReactStaticSite or S3+CloudFront).
-Configure AWS account/stage for dev.
-Acceptance: sst deploy returns an API endpoint + site URL.
+~~##### A1 — Init repo & monorepo skeleton (SMALL)~~
+~~Create repo and folders: /web, /services/api, /infra.~~
+~~Add README with run/deploy notes.
+Acceptance: Developer clones repo, cd web && npm install works.~~
+~~##### A2 — Setup SST & basic deploy (MEDIUM)~~
+~~Install SST and scaffold a stack that deploys a simple Lambda + Api and a static site (SST ReactStaticSite or S3+CloudFront).~~
+~~Configure AWS account/stage for dev.~~
+~~Acceptance: sst deploy returns an API endpoint + site URL.~~
 ##### A3 — CI/CD (SMALL → MEDIUM)
 GitHub Actions: lint, test, build, sst deploy --stage dev on merges to main.
 Secure AWS keys in GH Secrets.
 Acceptance: Merge triggers build + deployment.
 #### Epic B — Database & schema (MySQL)
 Goal: Provision RDS MySQL and implement migrations & seed data.
+TODO: running db locally to save money
 ##### B1 — Provision RDS MySQL via SST (MEDIUM)
 Create an RDS MySQL instance (or Aurora MySQL for better scaling if preferred).
 Configure subnet group, security groups (allow from Lambda VPC or RDS Proxy), backups, and maintenance window.

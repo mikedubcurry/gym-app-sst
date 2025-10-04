@@ -5,6 +5,14 @@
 
 declare module "sst" {
   export interface Resource {
+    "database": {
+      "database": string
+      "host": string
+      "password": string
+      "port": number
+      "type": "sst.aws.Mysql"
+      "username": string
+    }
     "db-vpc": {
       "type": "sst.aws.Vpc"
     }
