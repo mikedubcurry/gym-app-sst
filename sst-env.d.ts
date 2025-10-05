@@ -5,22 +5,6 @@
 
 declare module "sst" {
   export interface Resource {
-    "database": {
-      "database": string
-      "host": string
-      "password": string
-      "port": number
-      "type": "sst.aws.Mysql"
-      "username": string
-    }
-    "db-vpc": {
-      "bastion": string
-      "type": "sst.aws.Vpc"
-    }
-    "frontend": {
-      "type": "sst.aws.React"
-      "url": string
-    }
   }
 }
 /// <reference path="sst-env.d.ts" />

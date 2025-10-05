@@ -38,15 +38,20 @@ TODO: running db locally to save money
 ~~Create an RDS MySQL instance (or Aurora MySQL for better scaling if preferred).~~
 ~~Configure subnet group, security groups (allow from Lambda VPC or RDS Proxy), backups, and maintenance window.~~
 ~~Consider enabling RDS Proxy for Lambda connection pooling to avoid connection exhaustion.~~
-Acceptance: RDS instance endpoint returned in SST outputs.
+~~Acceptance: RDS instance endpoint returned in SST outputs.~~
 ##### B2 — Schema design & migrations (MEDIUM)
-Minimal tables for POC: users, roles, classes, class_occurrences, tenants (optional now or later).
+Minimal tables for POC: users, roles, schedules, gyms, tenants (optional now or later).
 Example MySQL DDL (see below).
 Choose a migration tool: knex migrations, node-migrate, or db-migrate. (Knex is a common choice for Node + MySQL.)
+- Knex
 Create initial migration files and seed sample classes & occurrences.
+- create migrations
+- test against local docker mysql
+- configure to run against staging instance
+- write seeders for minimum necessary data to run app
 Acceptance: Migrations run; tables and seed data present.
 ##### B3 — DB credentials & secrets (SMALL)
-Store DB credentials in AWS Secrets Manager via SST.
+~~Store DB credentials in AWS Secrets Manager via SST.~~
 Grant Lambda/ecs task IAM permission to read secret (or configure RDS IAM auth).
 Acceptance: Backend accesses DB using secrets manager without secrets in repo.
 #### Epic C — Authentication & Authorization
