@@ -7,7 +7,7 @@ export default $config({
     return {
       name: "gym",
       removal: input?.stage === "production" ? "retain" : "remove",
-      protect: ["production"].includes(input?.stage),
+      protect: ["production", "staging"].includes(input?.stage),
       home: "aws",
       providers: {
         aws: {
@@ -26,21 +26,22 @@ export default $config({
       vpc,
       password: process.env.DB_PASSWORD,
       username: process.env.DB_USER,
-      dev: {
-        username: 'root',
-        password: 'password',
-        database: 'gym',
-        port: 3306,
-      },
+      //dev: {
+      //  username: 'root',
+      //  password: 'password',
+      //  database: 'gym',
+      //  port: 3306,
+      //},
     });
     const web = new sst.aws.React("frontend", {
       link: [db],
-      vpc
+      vpc,
     });
 
     return {
       app: web.url,
       db_host: db.host,
+      bastion: vpc.bastion
     }
   },
 });

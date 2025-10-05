@@ -8,7 +8,8 @@
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "deploy": "sst deploy --stage staging",
-    "sst-dev": "sst dev --stage development"
+    "sst-dev": "sst dev --stage development",
+    "sst-staging": "sst dev --stage staging"
   },
   "dependencies": {
     "@react-router/node": "^7.9.2",
