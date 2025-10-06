@@ -12,7 +12,11 @@ docker run -d \
   -e MYSQL_ROOT_PASSWORD=password \
   mysql:8.0
 ```
-- start dev server `npx sst dev`
+- start dev server `npm run sst-dev`
+
+## NEXT STEP
+- swap out kysely for prisma
+- write migration script to run in lambda function
 
 ## PLANNING
 Members can register for gym membership, view a fixed class schedule, and admins can CRUD classes and schedule occurrences through an admin interface. Stack: SST (IaC) + AWS, frontend React Router v7 (framework mode), backend (Node.js Lambdas) and MySQL (RDS).

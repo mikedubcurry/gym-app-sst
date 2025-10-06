@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Outlet } from "react-router";
 import type { Route } from "./+types/publicLayout";
 import { db } from "db/database";
+import { MenuButton } from "~/components/menuBtn";
 
 export async function loader() {
   const gym = await db
@@ -49,7 +50,7 @@ export default function PublicLayout({ loaderData: gym }: Route.ComponentProps) 
           <Outlet />
           <footer className="text-center py-2">Michael Curry 2025</footer>
         </div>
-        <button className="z-20 fixed bottom-0 right-0 border border-black w-20 h-20 rounded-full" onClick={() => setMenuOpen(!menuOpen)}>menu</button>
+        <MenuButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </main>
       <nav
         className={`z-20 transition-all duration-500 w-3/4 h-full flex flex-col border border-black border-r-0 self-end absolute -right-full ${menuOpen && 'right-0'} top-0 bg-amber-200`}

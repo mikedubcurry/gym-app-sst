@@ -26,22 +26,28 @@ export default $config({
       vpc,
       password: process.env.DB_PASSWORD,
       username: process.env.DB_USER,
-      //dev: {
-      //  username: 'root',
-      //  password: 'password',
-      //  database: 'gym',
-      //  port: 3306,
-      //},
+      dev: {
+        username: 'root',
+        password: 'password',
+        database: 'gym',
+        port: 3306,
+      },
     });
+
     const web = new sst.aws.React("frontend", {
       link: [db],
       vpc,
     });
 
+    const migrator = new sst.aws.Function('migrator', {
+      handler: 'functions/migrate',
+      link: [db]
+    })
     return {
       app: web.url,
       db_host: db.host,
-      bastion: vpc.bastion
+      bastion: vpc.bastion,
+      db: db.nodes.instance
     }
   },
 });

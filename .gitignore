@@ -8,3 +8,7 @@
 
 # sst
 .sst
+
+/generated/prisma
+
+/generated/prisma
