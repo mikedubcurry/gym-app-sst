@@ -11,7 +11,7 @@ export const handler = async (event: any) => {
   })
 
   const migrator = new Umzug({
-    migrations: { glob: 'seeders/*.ts' },
+    migrations: { glob: 'seeders/*.js' },
     context: sequelize.getQueryInterface(),
     storage: new SequelizeStorage({ sequelize }),
     logger: console
