@@ -1,6 +1,5 @@
-import type { QueryInterface } from "sequelize"
 
-export async function up({ context: queryInterface }: { context: QueryInterface }) {
+export async function up({ context: queryInterface }) {
   await queryInterface.bulkInsert('gyms', [
     { name: 'Sukhti Muay Thai & MMA', address: '527 Central Ave', city: 'Albany', state: 'NY', postal_code: '12206' }
   ])
