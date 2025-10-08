@@ -40,8 +40,21 @@ export default $config({
     });
 
     const migrator = new sst.aws.Function('migrator', {
-      handler: 'functions/migrate',
-      link: [db]
+      handler: 'functions/migrate.handler',
+      link: [db],
+      vpc,
+      environment: {
+        DATABASE_URL: process.env.DATABASE_URL || ''
+      },
+      nodejs: {
+        install: ['sequelize', 'mysql2', 'umzug']
+      },
+      copyFiles: [
+        {
+          from: 'db/migrations',
+          to: './migrations'
+        }
+      ]
     })
     return {
       app: web.url,
