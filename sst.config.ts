@@ -58,7 +58,7 @@ export default $config({
     })
 
     const seeder = new sst.aws.Function('seeder', {
-      handler: 'functions/seeder.handler',
+      handler: 'functions/seed.handler',
       link: [db],
       vpc,
       environment: {

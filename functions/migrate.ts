@@ -3,8 +3,6 @@ import { Umzug, SequelizeStorage } from 'umzug'
 import { Resource } from 'sst'
 
 export const handler = async (event: any) => {
-  console.log(event)
-
   const dbUrl = `mysql://${Resource.database.username}:${Resource.database.password}@${Resource.database.host}:${Resource.database.port}/${Resource.database.database}` // process.env.DATABASE_URL!
 
   const sequelize = new Sequelize(dbUrl, {

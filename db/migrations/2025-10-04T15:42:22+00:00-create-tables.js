@@ -93,7 +93,7 @@ export async function up({ context: q }) {
       allowNull: false,
     },
     day: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.STRING(9),
       allowNull: false,
     },
     duration: {

@@ -18,19 +18,19 @@ export async function up({ context: queryInterface }: { context: QueryInterface 
   ])
 
   await queryInterface.bulkInsert('schedules', [
-    { class_name: 'Capoeira', gym_id: 1, time_stare: '09:30', day: 'sunday', duration: 60 },
-    { class_name: 'Muay Thai', gym_id: 1, time_stare: '10:30', day: 'sunday', duration: 60 },
-    { class_name: 'Muay Thai', gym_id: 1, time_stare: '17:30', day: 'monday', duration: 60 },
-    { class_name: 'Wrestling', gym_id: 1, time_stare: '18:30', day: 'monday', duration: 60 },
-    { class_name: 'Sparring', gym_id: 1, time_stare: '17:30', day: 'tuesday', duration: 60 },
-    { class_name: 'BJJ', gym_id: 1, time_stare: '18:30', day: 'tuesday', duration: 60 },
-    { class_name: 'Capoiera', gym_id: 1, time_stare: '17:30', day: 'wednesday', duration: 60 },
-    { class_name: 'Muay Thai', gym_id: 1, time_stare: '18:30', day: 'wednesday', duration: 60 },
-    { class_name: 'BJJ', gym_id: 1, time_stare: '09:30', day: 'thursday', duration: 60 },
-    { class_name: 'Muay Thai', gym_id: 1, time_stare: '10:30', day: 'thursday', duration: 60 },
-    { class_name: 'Sparring', gym_id: 1, time_stare: '09:30', day: 'friday', duration: 60 },
-    { class_name: 'Wrestling', gym_id: 1, time_stare: '10:30', day: 'friday', duration: 60 },
-    { class_name: 'Capoiera', gym_id: 1, time_stare: '12:30', day: 'saturday', duration: 60 },
-    { class_name: 'Muay Thai', gym_id: 1, time_stare: '13:30', day: 'saturday', duration: 60 },
+    { class_name: 'Capoeira', gym_id: 1, time_start: '09:30', day: 'sunday', duration: 60 },
+    { class_name: 'Muay Thai', gym_id: 1, time_start: '10:30', day: 'sunday', duration: 60 },
+    { class_name: 'Muay Thai', gym_id: 1, time_start: '17:30', day: 'monday', duration: 60 },
+    { class_name: 'Wrestling', gym_id: 1, time_start: '18:30', day: 'monday', duration: 60 },
+    { class_name: 'Sparring', gym_id: 1, time_start: '17:30', day: 'tuesday', duration: 60 },
+    { class_name: 'BJJ', gym_id: 1, time_start: '18:30', day: 'tuesday', duration: 60 },
+    { class_name: 'Capoiera', gym_id: 1, time_start: '17:30', day: 'wednesday', duration: 60 },
+    { class_name: 'Muay Thai', gym_id: 1, time_start: '18:30', day: 'wednesday', duration: 60 },
+    { class_name: 'BJJ', gym_id: 1, time_start: '09:30', day: 'thursday', duration: 60 },
+    { class_name: 'Muay Thai', gym_id: 1, time_start: '10:30', day: 'thursday', duration: 60 },
+    { class_name: 'Sparring', gym_id: 1, time_start: '09:30', day: 'friday', duration: 60 },
+    { class_name: 'Wrestling', gym_id: 1, time_start: '10:30', day: 'friday', duration: 60 },
+    { class_name: 'Capoiera', gym_id: 1, time_start: '12:30', day: 'saturday', duration: 60 },
+    { class_name: 'Muay Thai', gym_id: 1, time_start: '13:30', day: 'saturday', duration: 60 },
   ])
 }
