@@ -84,6 +84,10 @@ export async function up({ context: q }) {
       onUpdate: "CASCADE",
       onDelete: "SET NULL",
     },
+    class_name: {
+      type: DataTypes.STRING(64),
+      allowNull: false,
+    },
     time_start: {
       type: DataTypes.STRING(5),
       allowNull: false,

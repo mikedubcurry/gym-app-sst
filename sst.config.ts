@@ -56,6 +56,25 @@ export default $config({
         }
       ]
     })
+
+    const seeder = new sst.aws.Function('seeder', {
+      handler: 'functions/seeder.handler',
+      link: [db],
+      vpc,
+      environment: {
+        DATABASE_URL: process.env.DATABASE_URL || ''
+      },
+      nodejs: {
+        install: ['sequelize', 'mysql2', 'umzug']
+      },
+      copyFiles: [
+        {
+          from: 'db/seeders',
+          to: './seeders'
+        }
+      ]
+    })
+
     return {
       app: web.url,
       db_host: db.host,

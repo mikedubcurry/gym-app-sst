@@ -25,6 +25,10 @@ declare module "sst" {
       "name": string
       "type": "sst.aws.Function"
     }
+    "seeder": {
+      "name": string
+      "type": "sst.aws.Function"
+    }
   }
 }
 /// <reference path="sst-env.d.ts" />
