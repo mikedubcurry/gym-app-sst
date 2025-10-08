@@ -12,7 +12,12 @@ export const MenuButton = (
       `bg-brand mr-4 mb-4 z-20 fixed bottom-0 right-0 border border-black w-20
       h-20 rounded-full transition-all duration-500 ${menuOpen && 'right-3/4'}
       flex justify-center items-center`
-    } onClick={() => setMenuOpen(!menuOpen)}>
+    } onClick={(e) => {
+      e.preventDefault();
+      e.stopPropagation()
+      setMenuOpen(!menuOpen)
+      return false
+    }}>
       <div className="  h-1/2 w-1/2 items-center justify-center">
         <MenuLine classes={menuOpen && "transform rotate-45 translate-1"} />
         <MenuLine classes="" />

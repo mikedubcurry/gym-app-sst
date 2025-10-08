@@ -10,7 +10,9 @@ export function meta({ }: Route.MetaArgs) {
 export default function Register() {
   return (
     <>
-      <p>register</p>
+      <div>
+      register
+      </div>
     </>
   );
 }

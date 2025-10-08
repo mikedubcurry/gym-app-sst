@@ -35,29 +35,29 @@ Acceptance: Developer clones repo, cd web && npm install works.~~
 ~~GitHub Actions: lint, test, build, sst deploy --stage dev on merges to main.~~
 ~~Secure AWS keys in GH Secrets.~~
 Acceptance: Merge triggers build + deployment.
-#### Epic B — Database & schema (MySQL)
-Goal: Provision RDS MySQL and implement migrations & seed data.
-TODO: running db locally to save money
+~~#### Epic B — Database & schema (MySQL)~~
+~~Goal: Provision RDS MySQL and implement migrations & seed data.~~
+~~TODO: running db locally to save money~~
 ~~##### B1 — Provision RDS MySQL via SST (MEDIUM)~~
 ~~Create an RDS MySQL instance (or Aurora MySQL for better scaling if preferred).~~
 ~~Configure subnet group, security groups (allow from Lambda VPC or RDS Proxy), backups, and maintenance window.~~
 ~~Consider enabling RDS Proxy for Lambda connection pooling to avoid connection exhaustion.~~
 ~~Acceptance: RDS instance endpoint returned in SST outputs.~~
-##### B2 — Schema design & migrations (MEDIUM)
-Minimal tables for POC: users, roles, schedules, gyms, tenants (optional now or later).
-Example MySQL DDL (see below).
-Choose a migration tool: knex migrations, node-migrate, or db-migrate. (Knex is a common choice for Node + MySQL.)
-- Knex
-Create initial migration files and seed sample classes & occurrences.
-- create migrations
-- test against local docker mysql
-- configure to run against staging instance
-- write seeders for minimum necessary data to run app
-Acceptance: Migrations run; tables and seed data present.
+~~##### B2 — Schema design & migrations (MEDIUM)~~
+~Minimal tables for POC: users, roles, schedules, gyms, tenants (optional now or later).~
+~~Example MySQL DDL (see below).~~
+~~Choose a migration tool: knex migrations, node-migrate, or db-migrate. (Knex is a common choice for Node + MySQL.)~~
+- Sequelize and Lambda functions
+~~Create initial migration files and seed sample classes & occurrences.~~
+~~- create migrations~~
+~~- test against local docker mysql~~
+~~- configure to run against staging instance~~
+~~- write seeders for minimum necessary data to run app~~
+~~Acceptance: Migrations run; tables and seed data present.~~
 ##### B3 — DB credentials & secrets (SMALL)
 ~~Store DB credentials in AWS Secrets Manager via SST.~~
-Grant Lambda/ecs task IAM permission to read secret (or configure RDS IAM auth).
-Acceptance: Backend accesses DB using secrets manager without secrets in repo.
+~~Grant Lambda/ecs task IAM permission to read secret (or configure RDS IAM auth).~~
+~~Acceptance: Backend accesses DB using secrets manager without secrets in repo.~~
 #### Epic C — Authentication & Authorization
 Goal: Member signup/login and admin RBAC.
 ##### C1 — Auth provider setup (SMALL)
