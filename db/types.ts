@@ -20,6 +20,7 @@ export interface MembersTable {
   create_at: ColumnType<Date, string | undefined, never>
   updated_at: ColumnType<Date, string | undefined, string>
   gym_id: number
+  role_id: number
 }
 
 export type Member = Selectable<MembersTable>
@@ -52,4 +53,11 @@ export interface SchedulesTable {
 export type Schedule = Selectable<SchedulesTable>
 export type NewSchedule = Insertable<SchedulesTable>
 export type ScheduleUpdate = Updateable<SchedulesTable>
+
+export interface RolesTable {
+  id: Generated<number>
+  name: string
+}
+
+export type Role = Selectable<RolesTable>
 
