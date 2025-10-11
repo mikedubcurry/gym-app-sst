@@ -34,8 +34,12 @@ export default $config({
       },
     });
 
+    const auth = new sst.aws.Auth('auth', {
+      issuer: 'functions/auth.handler'
+    })
+
     const web = new sst.aws.React("frontend", {
-      link: [db],
+      link: [db, auth],
       vpc,
     });
 

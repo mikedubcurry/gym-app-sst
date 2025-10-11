@@ -12,9 +12,11 @@
     "sst-staging": "sst dev --stage staging"
   },
   "dependencies": {
+    "@openauthjs/openauth": "^0.4.3",
     "@react-router/node": "^7.9.2",
     "@react-router/serve": "^7.9.2",
     "@tanstack/react-form": "^1.23.6",
+    "hono": "^4.9.10",
     "isbot": "^5.1.31",
     "kysely": "^0.28.7",
     "kysely-ctl": "^0.19.0",
@@ -24,7 +26,8 @@
     "react-router": "^7.9.2",
     "sequelize": "^6.37.7",
     "sst": "3.17.14",
-    "umzug": "^3.8.2"
+    "umzug": "^3.8.2",
+    "valibot": "^1.1.0"
   },
   "devDependencies": {
     "@react-router/dev": "^7.9.2",

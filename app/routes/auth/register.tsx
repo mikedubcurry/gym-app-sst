@@ -3,6 +3,7 @@ import type { Route } from "./+types/register";
 import { useForm, type AnyFieldApi } from '@tanstack/react-form'
 import { db } from "db/database";
 import { useEffect, useRef, type Ref } from "react";
+import { FieldInfo } from "~/components/FieldInfo";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -151,15 +152,4 @@ export default function Register() {
       </div>
     </>
   );
-}
-
-function FieldInfo({ field }: { field: AnyFieldApi }) {
-  return (
-    <>
-      {field.state.meta.isTouched && !field.state.meta.isValid ? (
-        <em>{field.state.meta.errors.join(', ')}</em>
-      ) : null}
-      {field.state.meta.isValidating ? 'Validating...' : null}
-    </>
-  )
 }

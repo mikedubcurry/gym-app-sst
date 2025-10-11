@@ -8,6 +8,9 @@ export function meta({ }: Route.MetaArgs) {
   ];
 }
 
+async function authMiddleware ({request, context}) {
+}
+
 export default function AccountRoot() {
   return (
     <>

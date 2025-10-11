@@ -13,7 +13,7 @@ export interface Database {
 }
 
 export interface MembersTable {
-  id: Generated<number>
+  id: Generated<number> // TODO: make uuid string
   first_name: string
   last_name: string
   email: string
