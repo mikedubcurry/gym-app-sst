@@ -217,3 +217,78 @@ C1 — Cognito user pool setup
 D1 & D2 — Implement core APIs (auth register & classes endpoints)
 E1-E3 — Frontend registration/login and schedule pages
 G2 & G3 — Local dev with MySQL docker + smoke E2E test
+
+
+
+revised erd:
+Table Members {
+  id uuid [primary key]
+  first_name string
+  last_name string
+  gender char
+  email string
+  phone_number string
+  street_address string
+  city string
+  state string
+  postal_code string
+  prior_experience integer
+  goals text
+}
+
+Table Gyms {
+  id integer [primary key]
+  name string
+  street_address string
+  city string
+  state string
+  postal_code string
+}
+
+Table Gym_visits {
+  id integer [primary key]
+  member_id uuid
+  gym_id integer
+  class_name string
+  notes text
+}
+
+Table Classes {
+  id integer [primary key]
+  class_name string
+  gym_id integer
+  description text
+}
+
+Table Schedules {
+  id integer [primary key]
+  class_id integer
+  gym_id integer
+  time_start string
+  time_end string
+}
+
+Table Class_attendances {
+  id integer [primary key]
+  gym_id integer
+  schedule_id integer
+  member_id uuid
+}
+
+
+
+Ref: "Gym_visits"."gym_id" < "Gyms"."id"
+
+Ref: "Gym_visits"."member_id" < "Members"."id"
+
+Ref: "Classes"."gym_id" < "Gyms"."id"
+
+Ref: "Schedules"."class_id" < "Classes"."id"
+
+Ref: "Schedules"."gym_id" < "Gyms"."id"
+
+Ref: "Class_attendances"."gym_id" < "Gyms"."id"
+
+Ref: "Class_attendances"."schedule_id" < "Schedules"."id"
+
+Ref: "Class_attendances"."member_id" < "Members"."id"

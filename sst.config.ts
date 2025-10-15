@@ -7,7 +7,7 @@ export default $config({
     return {
       name: "gym",
       removal: input?.stage === "production" ? "retain" : "remove",
-      protect: ["production", "staging"].includes(input?.stage),
+      protect: ["production"].includes(input?.stage),
       home: "aws",
       providers: {
         aws: {
@@ -38,10 +38,15 @@ export default $config({
       issuer: 'functions/auth.handler'
     })
 
-    const web = new sst.aws.React("frontend", {
+    const web = new sst.aws.Nextjs("frontend", {
+      path: 'frontend',
       link: [db, auth],
-      vpc,
+      vpc
     });
+    //    const web = new sst.aws.React("frontend", {
+    //      link: [db, auth],
+    //      vpc,
+    //    });
 
     const migrator = new sst.aws.Function('migrator', {
       handler: 'functions/migrate.handler',
